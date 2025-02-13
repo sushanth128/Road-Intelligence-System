@@ -48,69 +48,39 @@ The dataset simulates an urban driving setting, featuring dynamic scenes with mo
 
 ### - Component 1: Pothole Distance, Size, and Depth Estimation
 
-- Object Detection Using YOLOv8
+- Object Detection Using YOLOv8: A pre-trained YOLOv8 model detects potholes in images. The model predicts bounding boxes for potholes, providing coordinates, confidence scores, and class labels. Bounding box dimensions (width and height) are used to estimate pothole size.
 
-A pre-trained YOLOv8 model detects potholes in images. The model predicts bounding boxes for potholes, providing coordinates, confidence scores, and class labels. Bounding box dimensions (width and height) are used to estimate pothole size.
+- Estimation of Pothole Size: Bounding box dimensions in pixels are converted into real-world units (cm) based on camera intrinsic parameters.
 
-- Estimation of Pothole Size
+- Estimation of Distance to Potholes: A formula based on bounding box position and camera parameters estimates pothole distance.
 
-Bounding box dimensions in pixels are converted into real-world units (cm) based on camera intrinsic parameters.
+- Estimation of Pothole Depth: Structure from Motion (SfM) photogrammetric technique constructs a 3D point cloud. The RANSAC algorithm determines the best-fit plane for depth calculation. The deepest point inside the pothole is calculated based on plane differences.
 
-- Estimation of Distance to Potholes
-
-A formula based on bounding box position and camera parameters estimates pothole distance.
-
-- Estimation of Pothole Depth
-
-Structure from Motion (SfM) photogrammetric technique constructs a 3D point cloud. The RANSAC algorithm determines the best-fit plane for depth calculation. The deepest point inside the pothole is calculated based on plane differences.
-
-- Visualization and Annotation
-
-Detected potholes are annotated with labels, confidence scores, estimated size, and distance from the camera.
+- Visualization and Annotation: Detected potholes are annotated with labels, confidence scores, estimated size, and distance from the camera.
 
 ### - Component 2: Trajectory Prediction
 
-- Data Preparation
+- Data Preparation: YOLOv5 extracts object bounding boxes from video frames.
 
-YOLOv5 extracts object bounding boxes from video frames.
+= Optical Flow Estimation with RAFT: RAFT generates a dense flow field, representing pixel-wise motion. The motion features are averaged within bounding boxes to derive object movement.
 
-= Optical Flow Estimation with RAFT
+- Feature Engineering: The pipeline calculates feature vectors comprising normalized bounding box coordinates and averaged optical flow values.
 
-RAFT generates a dense flow field, representing pixel-wise motion. The motion features are averaged within bounding boxes to derive object movement.
+- Sequence Matching and Tracking: Bounding boxes are matched between consecutive frames to maintain object continuity.
 
-- Feature Engineering
+- Trajectory Prediction Model Architecture: A lightweight LSTM network processes sequential input features. The LSTM learns temporal dependencies and predicts future bounding boxes.
 
-The pipeline calculates feature vectors comprising normalized bounding box coordinates and averaged optical flow values.
+- Training and Evaluation: The model is trained using sequences of input features and ground truth bounding boxes. Mean Squared Error (MSE) loss function is used to optimize the model.
 
-- Sequence Matching and Tracking
-
-Bounding boxes are matched between consecutive frames to maintain object continuity.
-
-- Trajectory Prediction Model Architecture
-
-A lightweight LSTM network processes sequential input features. The LSTM learns temporal dependencies and predicts future bounding boxes.
-
-- Training and Evaluation
-
-The model is trained using sequences of input features and ground truth bounding boxes. Mean Squared Error (MSE) loss function is used to optimize the model.
-
-- Inference and Visualization
-
-The model predicts future trajectories, visualized as bounding boxes overlaid on video frames.
+- Inference and Visualization: The model predicts future trajectories, visualized as bounding boxes overlaid on video frames.
 
 ## Lessons Learned
 
-- Importance of Lightweight Models for Edge Deployment
+- Importance of Lightweight Models for Edge Deployment: The need for optimization to ensure real-time performance on resource-constrained devices.
 
-The need for optimization to ensure real-time performance on resource-constrained devices.
+- Challenges in Depth Estimation: Limitations in depth accuracy due to monocular camera assumptions.
 
-- Challenges in Depth Estimation
-
-Limitations in depth accuracy due to monocular camera assumptions.
-
-- Real-World Variability
-
-Environmental factors such as lighting, occlusions, and road texture impact model performance.
+- Real-World Variability: Environmental factors such as lighting, occlusions, and road texture impact model performance.
 
 ## Suggestions for Future Work
 
