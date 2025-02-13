@@ -46,35 +46,63 @@ The solution delivered several key benefits to TCS (Tata Consultancy Services). 
 
 The dataset simulates an urban driving setting, featuring dynamic scenes with moving objects such as pedestrians, vehicles, and potholes. It consists of sequential video frames capturing common scenarios encountered in real-world environments.
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/830e8833-e97b-45dc-8abe-89e4332dfcaa" />
+
+
 ## Project Methodology
 
 ### - Component 1: Pothole Distance, Size, and Depth Estimation
+
 
 - Object Detection Using YOLOv8: A pre-trained YOLOv8 model detects potholes in images. The model predicts bounding boxes for potholes, providing coordinates, confidence scores, and class labels. Bounding box dimensions (width and height) are used to estimate pothole size.
 
 - Estimation of Pothole Size: Bounding box dimensions in pixels are converted into real-world units (cm) based on camera intrinsic parameters.
 
+  <img width="400" alt="image" src="https://github.com/user-attachments/assets/52c77883-c72e-4da2-88e1-e7cfa27f2de0" />
+
 - Estimation of Distance to Potholes: A formula based on bounding box position and camera parameters estimates pothole distance.
 
+ <img width="468" alt="image" src="https://github.com/user-attachments/assets/c9d2eb9b-9fc5-402d-8b42-bcebab2dcd5f" />
+
 - Estimation of Pothole Depth: Structure from Motion (SfM) photogrammetric technique constructs a 3D point cloud. The RANSAC algorithm determines the best-fit plane for depth calculation. The deepest point inside the pothole is calculated based on plane differences.
+  
+  <img width="367" alt="image" src="https://github.com/user-attachments/assets/ff331aca-91d8-4cf0-9c28-674420193ff1" />
+
+  <img width="204" alt="image" src="https://github.com/user-attachments/assets/cc00ee06-20a1-4965-b60c-e6d69b69e6bb" />
 
 - Visualization and Annotation: Detected potholes are annotated with labels, confidence scores, estimated size, and distance from the camera.
+  
+  <img width="492" alt="image" src="https://github.com/user-attachments/assets/6703197b-ad58-4cc0-b79e-0d8b87e2d32d" />
+
+  <img width="468" alt="image" src="https://github.com/user-attachments/assets/e08c4daa-45cb-4b25-a85c-3faab0070be6" />
+
 
 ### - Component 2: Trajectory Prediction
 
 - Data Preparation: YOLOv5 extracts object bounding boxes from video frames.
+  
+  <img width="290" alt="image" src="https://github.com/user-attachments/assets/f10d5ee4-cb38-49ba-a966-68ba9939b065" />
 
 = Optical Flow Estimation with RAFT: RAFT generates a dense flow field, representing pixel-wise motion. The motion features are averaged within bounding boxes to derive object movement.
+
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/9929be59-3403-4165-80db-7c955230966b" />
 
 - Feature Engineering: The pipeline calculates feature vectors comprising normalized bounding box coordinates and averaged optical flow values.
 
 - Sequence Matching and Tracking: Bounding boxes are matched between consecutive frames to maintain object continuity.
 
 - Trajectory Prediction Model Architecture: A lightweight LSTM network processes sequential input features. The LSTM learns temporal dependencies and predicts future bounding boxes.
+  
+  <img width="324" alt="image" src="https://github.com/user-attachments/assets/39e6b5ee-b014-442c-a057-b0b68143e0bf" />
 
 - Training and Evaluation: The model is trained using sequences of input features and ground truth bounding boxes. Mean Squared Error (MSE) loss function is used to optimize the model.
 
 - Inference and Visualization: The model predicts future trajectories, visualized as bounding boxes overlaid on video frames.
+  
+  <img width="468" alt="image" src="https://github.com/user-attachments/assets/70cdce0e-2dad-4f0a-999e-01c34e8370c6" />
+
+  <img width="270" alt="image" src="https://github.com/user-attachments/assets/b26ea82f-342e-4596-b0df-c04129721339" />
+
 
 ## Lessons Learned
 
