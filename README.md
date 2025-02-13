@@ -2,6 +2,14 @@
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/f0605a70-b2e2-4639-99e7-877a5f9ed381" />
 
+- [Executive Summary](#executive-summary)
+- [Project Objectives](#project-objectives)
+- [Value and Business Impact](#value-and-business-impact)
+- [Project Methodology](#project-methodology)
+- [Lessons Learned](#lessons-learned)
+- [Future Work](#suggestions-for-future-work)
+- [Conclusions](#conclusions-and-recommendations)
+
 ## Executive Summary
 
 The team was tasked with addressing a critical challenge faced by vehicles navigating busy urban roads, particularly in rapidly developing regions such as India. In these areas, road infrastructure often poses significant risks to drivers due to obstacles like potholes and the unpredictable movement of pedestrians and other vehicles. This project aimed to develop an intelligent system that uses only camera input to identify and estimate the size and severity of potholes, predict the future trajectory of pedestrians and provide real-time assistance to drivers.
