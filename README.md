@@ -83,7 +83,7 @@ The dataset simulates an urban driving setting, featuring dynamic scenes with mo
   
   <img width="290" alt="image" src="https://github.com/user-attachments/assets/f10d5ee4-cb38-49ba-a966-68ba9939b065" />
 
-= Optical Flow Estimation with RAFT: RAFT generates a dense flow field, representing pixel-wise motion. The motion features are averaged within bounding boxes to derive object movement.
+- Optical Flow Estimation with RAFT: RAFT generates a dense flow field, representing pixel-wise motion. The motion features are averaged within bounding boxes to derive object movement.
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/9929be59-3403-4165-80db-7c955230966b" />
 
