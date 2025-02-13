@@ -51,6 +51,9 @@ The dataset simulates an urban driving setting, featuring dynamic scenes with mo
 
 ## Project Methodology
 
+<img width="264" alt="image" src="https://github.com/user-attachments/assets/5b6247c6-220d-461c-958e-3b1f5a3462c4" />
+
+
 ### - Component 1: Pothole Distance, Size, and Depth Estimation
 
 
