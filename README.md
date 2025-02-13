@@ -1,8 +1,10 @@
 # TCS Road Intelligence: Capstone Final Project
 
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/f0605a70-b2e2-4639-99e7-877a5f9ed381" />
+
 ## Executive Summary
 
-The team was tasked with addressing a critical challenge faced by vehicles navigating busy urban roads, particularly in rapidly developing regions such as India. In these areas, road infrastructure often poses significant risks to drivers due to obstacles like potholes and the unpredictable movement of pedestrians and other vehicles. This project aimed to develop an intelligent system that uses only camera input to identify and estimate the size and severity of potholes, predict the future trajectory of pedestrians and vehicles, and provide real-time assistance to drivers.
+The team was tasked with addressing a critical challenge faced by vehicles navigating busy urban roads, particularly in rapidly developing regions such as India. In these areas, road infrastructure often poses significant risks to drivers due to obstacles like potholes and the unpredictable movement of pedestrians and other vehicles. This project aimed to develop an intelligent system that uses only camera input to identify and estimate the size and severity of potholes, predict the future trajectory of pedestrians and provide real-time assistance to drivers.
 
 The approach leveraged a combination of fundamental computer vision techniques and cutting-edge machine learning models tailored for real-time performance. The solution comprised four main components:
 
