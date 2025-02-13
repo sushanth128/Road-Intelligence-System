@@ -47,12 +47,18 @@ This proof of concept supports TCS’s push toward Level 3+ vehicle automation, 
 The dataset used in this project simulates real-world urban driving scenarios, capturing dynamic interactions between vehicles, pedestrians, and road hazards such as potholes. It consists of sequential video frames processed to extract motion patterns and object positions.
 
 Key Data Components:
-Raw Video Frames: Captured from a forward-facing vehicle camera, providing a continuous stream of road conditions.
-Object Detection Annotations: Bounding box labels for potholes, pedestrians, and vehicles, enabling supervised learning for hazard identification.
-Optical Flow Data: Motion vectors extracted using RAFT, allowing precise tracking of object movement between frames.
-Depth and Size Estimations: Derived from monocular image analysis, estimating pothole depth and distance without requiring expensive LiDAR sensors.
-Trajectory Sequences: Processed with LSTMs to predict future movement of pedestrians and vehicles based on historical motion patterns.
-This dataset structure ensures robust model training and validation, enabling the system to detect hazards, estimate severity, and provide real-time trajectory forecasts to enhance driver safety.
+
+- Raw Video Frames: Captured from a forward-facing vehicle camera, providing a continuous stream of road conditions.
+  
+- Object Detection Annotations: Bounding box labels for potholes, pedestrians, and vehicles, enabling supervised learning for hazard identification.
+
+- Optical Flow Data: Motion vectors extracted using RAFT, allowing precise tracking of object movement between frames.
+
+- Depth and Size Estimations: Derived from monocular image analysis, estimating pothole depth and distance without requiring expensive LiDAR sensors.
+
+- Trajectory Sequences: Processed with LSTMs to predict future movement of pedestrians and vehicles based on historical motion patterns.
+
+- This dataset structure ensures robust model training and validation, enabling the system to detect hazards, estimate severity, and provide real-time trajectory forecasts to enhance driver safety.
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/830e8833-e97b-45dc-8abe-89e4332dfcaa" />
 
