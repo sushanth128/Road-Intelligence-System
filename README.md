@@ -12,19 +12,11 @@
 
 ## Executive Summary
 
-The team was tasked with addressing a critical challenge faced by vehicles navigating busy urban roads, particularly in rapidly developing regions such as India. In these areas, road infrastructure often poses significant risks to drivers due to obstacles like potholes and the unpredictable movement of pedestrians and other vehicles. This project aimed to develop an intelligent system that uses only camera input to identify and estimate the size and severity of potholes, predict the future trajectory of pedestrians and provide real-time assistance to drivers.
+Urban road infrastructure in developing regions presents significant challenges for drivers, including potholes, unpredictable pedestrians, and moving vehicles. This project, developed in collaboration with Tata Consultancy Services (TCS), introduces a camera-based Road Intelligence System designed to enhance driver safety using real-time hazard detection and trajectory prediction.
 
-The approach leveraged a combination of fundamental computer vision techniques and cutting-edge machine learning models tailored for real-time performance. The solution comprised four main components:
+Leveraging computer vision and deep learning, the system detects road hazards with YOLOv8, estimates pothole size and severity using camera-based depth estimation, and predicts pedestrian/vehicle movement through RAFT optical flow and LSTM-based trajectory forecasting. Unlike sensor-heavy approaches (e.g., LiDAR), this solution is lightweight, cost-effective, and optimized for real-time performance on resource-constrained devices.
 
-- Object Detection: The team used the YOLOv5 (You Only Look Once) object detection framework for identifying potholes, vehicles, and pedestrians.
-
-- Pothole Distance and Size Estimation: A custom formula was used to estimate the size and severity of potholes, accounting for assumptions regarding the camera's angle, focal length, and other intrinsic properties.
-
-- Trajectory Prediction: The RAFT (Recurrent All-Pairs Field Transform) model was employed for optical flow estimation to understand motion patterns on the road. LSTM (Long Short-Term Memory) models were integrated to predict the future trajectories of pedestrians and vehicles, enabling drivers to make informed decisions.
-
-- Real-time Integration and Optimization: The system was designed to operate efficiently on limited computational resources, with all code written in Python and optimized for lightweight processing.
-
-The solution delivered several key benefits to TCS (Tata Consultancy Services). By building a resource-efficient, camera-only system, the project offered a cost-effective alternative to traditional sensor-intensive techniques such as LIDAR. Furthermore, the system's design aligns with TCS's ongoing efforts to enhance Level 3+ vehicle automation capabilities, bridging the gap between accessible technology and advanced automation.
+This proof of concept supports TCS’s push toward Level 3+ vehicle automation, offering a scalable and affordable alternative for smart transportation in urban environments. Future improvements include enhanced depth estimation, Transformer-based trajectory models, and deployment optimizations for edge devices.
 
 ## Project Objectives
 
